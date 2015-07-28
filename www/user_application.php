@@ -30,7 +30,7 @@ $userdata_array = array(
 	);
 
 $sql_conn->exec("
-INSERT INTO new_users (username, fname, lname, pname, bday, syear, primary_group, phone, email, ctime) 
+INSERT INTO new_users (username, fname, lname, pname, bday, syear, primary_group, phone, email, ctime)
 VALUES (
 $userdata_array['username'],
 $userdata_array['fname'],
