@@ -13,10 +13,11 @@ echo '<h2 style="color:red">'.$reason.'</h2></body></html">';
 die();
 }
 
-#initialize SQL connection
+try {
+
 if(file_exists($sql_location)) $sql_conn = new PDO('sqlite:'.$sql_location);
 else panic("SQL Database file not found");
-try {
+
 $userdata_array = array(
 	"username" => preg_replace('/[^A-Za-z0-9\-]/', '', $_POST['username']), 
 	"fname" => $_POST['fname'], 
@@ -28,8 +29,9 @@ $userdata_array = array(
 	"phone" => $_POST['phone'], 
 	"email" => $_POST['email']
 	);
+
 if(!$userdata_array['username']) panic("Fill the form m8");
-$sql_conn->beginTransaction();
+
 $sql_conn->exec("
 INSERT INTO new_users (username, fname, lname, pname, bday, syear, primary_group, phone, email, ctime)
 VALUES (
