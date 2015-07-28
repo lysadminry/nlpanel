@@ -28,6 +28,7 @@ $userdata_array = array(
 	"phone" => $_POST['phone'], 
 	"email" => $_POST['email']
 	);
+if(!$userdata_array['username']) panic("Fill the form nigger")
 
 $sql_conn->exec("
 INSERT INTO new_users (username, fname, lname, pname, bday, syear, primary_group, phone, email, ctime)
@@ -49,7 +50,7 @@ $sql_conn->commit();
 }
 
 catch(PDOException $e) {
-	echo $sql . '<br />' . $e->getMessage();
+	echo $e->getMessage()."<br>";
 }
 
 print("User account application saved");
