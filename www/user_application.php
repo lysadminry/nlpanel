@@ -16,7 +16,7 @@ die();
 #initialize SQL connection
 if(file_exists($sql_location)) $sql_conn = new PDO('sqlite:'.$sql_location);
 else panic("SQL Database file not found");
-
+try {
 $userdata_array = array(
 	"username" => preg_replace('/[^A-Za-z0-9\-]/', '', $_POST['username']), 
 	"fname" => $_POST['fname'], 
@@ -46,10 +46,13 @@ date('Y-m-d H:i:s')
 
 $sql_conn->commit();
 
+}
+
 catch(PDOException $e) {
 	$sql_conn->rollback();
 	echo $sql . '<br />' . $e->getMessage();
 }
+
 print("User account application saved");
 
 print_r($userdata_array);
