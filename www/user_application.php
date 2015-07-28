@@ -17,17 +17,17 @@ die();
 if(file_exists($sql_location)) $sql_conn = new PDO('sqlite:'.$sql_location);
 else panic("SQL Database file not found");
 
-$username = $_POST['username'];
-$fname = $_POST['fname'];
-$lname = $_POST['lname'];
-$pname = $_POST['pname'];
-$bday = $_POST['bday'];
-$syear = $_POST['syear'];
-$group = $_POST['group'];
-$phone = $_POST['phone'];
-$email = $_POST['email'];
-
-$userdata_array = array('username' => $username, 'fname' => $fname, 'lname' => $lname, 'pname' => $pname, 'bday' => $bday, 'syear' => $syear, 'group' => $group, 'phone' => $phone, 'email' => $email);
+$userdata_array = array(
+	"username" => preg_replace('/[^A-Za-z0-9\-]/', '', $_POST['username']), 
+	"fname" => $_POST['fname'], 
+	"lname" => $_POST['lname'], 
+	"pname" => $_POST['pname'], 
+	"bday" => $_POST['bday'], 
+	"syear" => $_POST['syear'], 
+	"group" => $_POST['group'], 
+	"phone" => $_POST['phone'], 
+	"email" => $_POST['email']
+	);
 
 print_r($userdata_array);
 
