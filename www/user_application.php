@@ -24,10 +24,28 @@ $userdata_array = array(
 	"pname" => $_POST['pname'], 
 	"bday" => $_POST['bday'], 
 	"syear" => $_POST['syear'], 
-	"group" => $_POST['group'], 
+	"primary_group" => $_POST['group'], 
 	"phone" => $_POST['phone'], 
 	"email" => $_POST['email']
 	);
+
+$sql_conn->exec("INSERT INTO new_users (username, fname, lname, pname, bday, syear, primary_group, phone, email, ctime) 
+	VALUES (
+		$userdata_array["username"], 
+		$userdata_array["fname"],
+		$userdata_array["lname"],
+		$userdata_array["pname"],
+		$userdata_array["bday"],
+		$userdata_array["syear"],
+		$userdata_array["primary_group"],
+		$userdata_array["phone"],
+		$userdata_array["email],
+		date("Y-m-d H:i:s")
+		)
+);
+$sql_conn->commit();
+
+print("User account application saved");
 
 print_r($userdata_array);
 
