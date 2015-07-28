@@ -7,5 +7,6 @@ CREATE TABLE new_users (
        syear TEXT,
        primary_group TEXT,
        phone TEXT,
-       email TEXT
+       email TEXT,
+       ctime TEXT
 );
