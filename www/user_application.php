@@ -43,8 +43,12 @@ $userdata_array[phone],
 $userdata_array[email],
 date('Y-m-d H:i:s')
 )");
-$sql_conn->commit();
 
+try: $sql_conn->commit();
+catch(PDOException $e) {
+	$sql_conn->rollback();
+	echo $sql . '<br />' . $e->getMessage();
+}
 print("User account application saved");
 
 print_r($userdata_array);
