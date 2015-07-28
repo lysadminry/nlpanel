@@ -29,7 +29,7 @@ $userdata_array = array(
 	"email" => $_POST['email']
 	);
 if(!$userdata_array['username']) panic("Fill the form nigger");
-
+$sql_conn->beginTransaction();
 $sql_conn->exec("
 INSERT INTO new_users (username, fname, lname, pname, bday, syear, primary_group, phone, email, ctime)
 VALUES (
