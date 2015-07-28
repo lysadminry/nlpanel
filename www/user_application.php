@@ -27,7 +27,9 @@ $group = $_POST['group'];
 $phone = $_POST['phone'];
 $email = $_POST['email'];
 
+$userdata_array = array('username' = $username, 'fname' = $fname, 'lname' = $lname, 'pname' = $pname, 'bday' = $bday, 'syear' = $syear, 'group' = $group, 'phone' = $phone, 'email' = $email);
 
+print_r($userdata_array);
 
 ?>
 </body>
