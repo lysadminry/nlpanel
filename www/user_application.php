@@ -44,7 +44,8 @@ $userdata_array[email],
 date('Y-m-d H:i:s')
 )");
 
-try: $sql_conn->commit();
+$sql_conn->commit();
+
 catch(PDOException $e) {
 	$sql_conn->rollback();
 	echo $sql . '<br />' . $e->getMessage();
