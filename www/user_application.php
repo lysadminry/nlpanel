@@ -49,7 +49,6 @@ $sql_conn->commit();
 }
 
 catch(PDOException $e) {
-	$sql_conn->rollback();
 	echo $sql . '<br />' . $e->getMessage();
 }
 
