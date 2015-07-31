@@ -32,8 +32,8 @@ foreach($userdata_array as $key => $userdata) {
 	if(!$userdata && $key !== "email" && $key !== "phone") panic("Fill all the required fields");
 }
 if(strlen($userdata_array['bday'] == "6" && is_numeric($userdata_array['bday']))) panic("Incorrect birthday");
-if(strlen($userdata_array['syear']) == "4" && is_numeric($userdata_array['syear'])) panic("Incorrect start year");
-if($userdata_array['primary_group'] !== "lyseo" AND $userdata_array['primary_group'] !== "opettaja") panic("Incorrect group");
+if(strlen($userdata_array['syear'] == "4" && is_numeric($userdata_array['syear']))) panic("Incorrect start year");
+if($userdata_array['primary_group'] !== "lyseo" && $userdata_array['primary_group'] !== "opettaja") panic("Incorrect group");
 if(!is_numeric($userdata_array['phone'])) panic("Incorrect phone number");
 
 #Try and enter the data to the SQLite database
