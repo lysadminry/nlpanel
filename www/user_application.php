@@ -34,7 +34,7 @@ $userdata_array = array(
 	);
 
 foreach($userdata_array as $userdata) {
-	if(!$userdata) print("Fill all the fields");
+	if(!$userdata) panic("Fill all the fields");
 }
 
 $sql_conn->beginTransaction();
