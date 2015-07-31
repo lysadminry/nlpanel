@@ -33,7 +33,7 @@ $userdata_array = array(
 	"date" => date('Y-m-d H:i:s')
 	);
 
-foreach $userdata_array as $userdata {
+foreach($userdata_array as $userdata) {
 	if(!userdata) print("Fill all the fields");
 }
 
