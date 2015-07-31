@@ -58,7 +58,7 @@ $userdata_array[syear],
 $userdata_array[primary_group],
 $userdata_array[phone],
 $userdata_array[email],
-$userdata_array[date]
+'"'.$userdata_array[date].'"'
 )");
 
 $sql_conn->commit();
