@@ -32,7 +32,7 @@ foreach($userdata_array as $key => $userdata) {
 }
 if(!strlen($userdata_array['bday']) == "6" OR !is_numeric($userdata_array['bday'])) panic("Incorrect birthday");
 if(!strlen($userdata_array['syear']) == "4" OR !is_numeric($userdata_array['syear'])) panic("Incorrect start year");
-if($userdata_array['primary_group'] !== "lyseo" OR $userdata_array['primary_group'] !== "opettaja") panic("Incorrect group");
+if($userdata_array['primary_group'] !== "lyseo" && $userdata_array['primary_group'] !== "opettaja") panic("Incorrect group");
 if($userdata_array['phone'] && !is_numeric($userdata_array['phone'])) panic("Incorrect phone number");
 if($userdata_array['email'] && !filter_var($userdata_array['email'], FILTER_VALIDATE_EMAIL)) panic("Incorrect email address");
 
