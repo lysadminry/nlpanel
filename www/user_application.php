@@ -47,7 +47,7 @@ VALUES ('$userdata_array[username]',
 '$userdata_array[phone]',
 '$userdata_array[email]',
 '$userdata_array[date]'
-)");
+);");
 
 print("
 INSERT INTO new_users (username, fname, lname, pname, bday, syear, primary_group, phone, email, ctime)
@@ -61,7 +61,7 @@ VALUES ('$userdata_array[username]',
 '$userdata_array[phone]',
 '$userdata_array[email]',
 '$userdata_array[date]'
-)");
+);");
 
 $sql_conn->commit();
 
