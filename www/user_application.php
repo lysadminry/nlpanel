@@ -44,7 +44,7 @@ $sql_conn->commit();
 }
 
 catch(PDOException $e) {
-	echo $e->getMessage()."<br>";
+	panic($e->getMessage());
 }
 
 $sql_conn = null;
