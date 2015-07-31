@@ -34,8 +34,9 @@ if(strlen($userdata_array['bday'] == "6" && is_numeric($userdata_array['bday']))
 if(strlen($userdata_array['syear'] == "4" && is_numeric($userdata_array['syear']))) panic("Incorrect start year");
 if($userdata_array['primary_group'] !== "lyseo" && $userdata_array['primary_group'] !== "opettaja") panic("Incorrect group");
 if($userdata_array['phone'] && !is_numeric($userdata_array['phone'])) panic("Incorrect phone number");
+if($userdata_array['email'] && !filter_var($userdata_array['email'], FILTER_VALIDATE_EMAIL)) panic("Incorrect email address");
 
-#Try and enter the data to the SQLite database
+#Try committing the data to the SQLite database
 try {
 
 if(file_exists($sql_location)) $sql_conn = new PDO("sqlite:$sql_location");
@@ -49,8 +50,8 @@ $database_query->execute($userdata_array);
 $sql_conn->commit();
 }
 
+#If pdo exception is caught, close connection and panic
 catch(PDOException $e) {
-	#If pdo exception is caught, close connection and die.
 	$sql_conn = null;
 	panic($e->getMessage());
 }
