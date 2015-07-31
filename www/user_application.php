@@ -34,14 +34,14 @@ $userdata_array = array(
 	);
 
 foreach($userdata_array as $userdata) {
-	if(!userdata) print("Fill all the fields");
+	if(!$userdata) print("Fill all the fields");
 }
 
 $sql_conn->beginTransaction();
 
 #beware: $userdata_array needs to be in the right order in order for this to work
-$prepared_statement = $sql_conn->prepare("INSERT INTO new_users (username, fname, lname, pname, bday, syear, primary_group, phone, email, ctime) VALUES ('?','?','?','?','?','?','?','?','?','?')");
-$prepared_statement->execute($userdata_array);
+$sql_conn->prepare("INSERT INTO new_users (username, fname, lname, pname, bday, syear, primary_group, phone, email, ctime) VALUES ('?','?','?','?','?','?','?','?','?','?')");
+$sql_conn->execute($userdata_array);
 
 $sql_conn->commit();
 }
