@@ -1,4 +1,5 @@
 CREATE TABLE new_users (
+       id INTEGER PRIMARY KEY,
        username TEXT,
        fname TEXT,
        lname TEXT,
