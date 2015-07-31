@@ -37,8 +37,8 @@ if(!$userdata_array['username']) panic("Fill the form m8");
 
 $sql_conn->beginTransaction();
 
-$sql_conn = $dbh->prepare("INSERT INTO new_users (username, fname, lname, pname, bday, syear, primary_group, phone, email, ctime) VALUES (':username',':fname',':lname',':pname',':bday',':syear',':primary_group',':phone',':email',':date')");
-$sql_conn->exec($userdata_array);
+$sql_conn->prepare("INSERT INTO new_users (username, fname, lname, pname, bday, syear, primary_group, phone, email, ctime) VALUES (':username',':fname',':lname',':pname',':bday',':syear',':primary_group',':phone',':email',':date')");
+$sql_conn->execute($userdata_array);
 
 $sql_conn->commit();
 }
