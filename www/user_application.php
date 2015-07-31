@@ -28,7 +28,7 @@ $userdata_array = array(
 	"primary_group" => $_POST['group'], 
 	"phone" => $_POST['phone'], 
 	"email" => $_POST['email'],
-	"date" => date('Y-m-d H:i:s')
+	"date" => '"'.date('Y-m-d H:i:s').'"'
 	);
 
 if(!$userdata_array['username']) panic("Fill the form m8");
@@ -58,7 +58,7 @@ $userdata_array[syear],
 $userdata_array[primary_group],
 $userdata_array[phone],
 $userdata_array[email],
-'"'.$userdata_array[date].'"'
+$userdata_array[date]
 )");
 
 $sql_conn->commit();
