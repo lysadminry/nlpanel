@@ -54,7 +54,7 @@ catch(PDOException $e) {
 
 $sql_conn = null;
 
-print("User account application saved");
+print('<h2 style="color:green">User account application saved</h2>');
 
 ?>
 </body>
