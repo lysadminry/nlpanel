@@ -18,6 +18,8 @@ try {
 if(file_exists($sql_location)) $sql_conn = new PDO("sqlite:$sql_location");
 else panic("SQL Database file not found");
 
+$sql_conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+
 $userdata_array = array(
 	"username" => preg_replace('/[^A-Za-z0-9\-]/', '', $_POST['username']),
 	"fname" => $_POST['fname'],
