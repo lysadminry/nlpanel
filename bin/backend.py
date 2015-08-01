@@ -1,7 +1,7 @@
 from pony.orm import *
 from configobj import ConfigObj
 
-dbConfig = ConfigObj('../etc/sql.conf')
+dbConfig = ConfigObj('/usr/local/nlpanel/etc/sql.conf')
 db = Database('sqlite', dbConfig['database'])
 
 class Application(db.Entity):
