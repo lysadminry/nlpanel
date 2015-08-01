@@ -1,3 +1,4 @@
+#!/usr/bin/python
 from pony.orm import *
 from configobj import ConfigObj
 
